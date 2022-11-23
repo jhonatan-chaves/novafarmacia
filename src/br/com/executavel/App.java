@@ -29,17 +29,32 @@ public class App {
 		// System.out.println(produtos.get(0));
 
 		// System.out.println(produtos.get(((int)3L) -1));
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < 1; j++) {
+			String procurarProduto = JOptionPane.showInputDialog(" 1/codigo ou 2/nome");
+			
+		if(Integer.valueOf(procurarProduto) == 1 ) {	
 		String id = JOptionPane.showInputDialog("codigo do produto?");
 		for (int i = 0; i < produtos.size(); i++) {
 
-			if (produtos.get(i).getId() == Long.parseLong(id) || produtos.get(i).getNome() == id) {
+			if (produtos.get(i).getId() == Long.parseLong(id)) {
 				// System.out.println(produtos.get(i));
 				carrinho.add(produtos.get(i));
 				break;
 			}
 
 		}
+	  }else {
+		  String nome = JOptionPane.showInputDialog("nome do produto?");
+			for (int i = 0; i < produtos.size(); i++) {
+           
+				if (produtos.get(i).getNome() == nome.intern()) {
+					// System.out.println(produtos.get(i));
+					carrinho.add(produtos.get(i));
+					break;
+				}
+
+			}
+	  }
 	}
 		System.out.println(carrinho.toString());
 		carrinho.clear();
