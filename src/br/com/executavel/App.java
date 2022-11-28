@@ -57,6 +57,7 @@ public class App {
 	  }
 	}
 		System.out.println(carrinho.toString());
+		
 		carrinho.clear();
 		System.out.println(carrinho.toString());
 
