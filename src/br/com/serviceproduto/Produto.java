@@ -6,7 +6,9 @@ public class Produto {
 	private String nome;
 	private String fabricante;
 	private double preco;
-
+    private double qtd;
+    
+    
 	public Produto() {
 
 	}
@@ -18,6 +20,8 @@ public class Produto {
 		this.preco = preco;
 	}
 
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -49,6 +53,14 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	
+	public double getQtd() {
+		return qtd;
+	}
+	
+	public void setQtd(double qtd) {
+		this.qtd = qtd;
+	}
 
 	public double calcularValor(double qtd) {
 		return (int) qtd * this.preco;
@@ -56,7 +68,7 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", fabricante=" + fabricante + ", preco=" + preco + "]" + "\n";
+		return "Produto [id=" + id + ", nome=" + nome + ", fabricante=" + fabricante + ", preco=" + preco + " qtd=" + this.qtd +" ]" + "\n";
 	}
 
 	

@@ -49,34 +49,46 @@ public class Venda {
 		this.carrinho = carrinho;
 	}
 
-	public double getSomaProdutos() {
-		double somaProdutos = 0;
-		for (Object produCarrinho : carrinho) {
-			somaProdutos += produto.getPreco();
-		}
-		return somaProdutos + carrinho.size();
-	}
-
 	public void getProcurarProduto() {
-		String nome5 = JOptionPane.showInputDialog("DIGITE O CODIGO");
-		for (int i = 0; i < produtos.size(); i++) {
-			if (produtos.get(i).getId() == Long.parseLong(nome5)) {
-				System.out.println(produtos.get(i));
-				carrinho.add(produtos.get(i));
-				break;
+		for (int j = 0; j < 2; j++) {
+			String nome5 = JOptionPane.showInputDialog("DIGITE O CODIGO");
+			String qtd = JOptionPane.showInputDialog("qual a quantidade?");
+			for (int i = 0; i < produtos.size(); i++) {
+				if (produtos.get(i).getId() == Long.parseLong(nome5)) {
+					// System.out.println(produtos.get(i));
+					for (int k = 0; k < Integer.valueOf(qtd); k++) {
+
+						carrinho.add(produtos.get(i));
+						if (Integer.valueOf(qtd) >= 2) {
+							System.out.println(produtos.get(i) + " \n" + "Qtd: " + qtd);
+
+						} else {
+							System.out.println(produtos.get(i));
+						}
+
+					}
+					break;
+				}
 			}
 		}
 	}
+
 	public void getMostrarCarrinho() {
 		System.out.println(carrinho.toString());
 	}
 
-	@Override
-	public String toString() {
-		return "Venda [id=" + id + ", produto=" + produto + ", produtos=" + produtos + ", carrinho=" + carrinho + "]";
+	public double getSomaProdutos() {
+		double somaProdutos = 0;
+		for (Object produtoCarrinho : carrinho) {
+			somaProdutos += ((Produto) produtoCarrinho).getPreco();
+		}
+
+		return somaProdutos;
 	}
 
-	
-	
-	
+	@Override
+	public String toString() {
+		return " carrinho=" + carrinho + "]";
+	}
+
 }
