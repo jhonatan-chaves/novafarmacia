@@ -1,18 +1,37 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 public class TesteView extends JFrame {
 
 	private String imagePane1 = "imagen11.png";
+	
+	
+	
+	JTextField codigoProduto = new JTextField();
 
+	private void digitar(String caractere) {
+		if (codigoProduto.getText().equals("0,00")) {
+			codigoProduto.setText(caractere);
+		}else {
+			if(caractere.equals(",") && codigoProduto.getText().contains(",")) {
+				
+			}else {
+				codigoProduto.setText(codigoProduto.getText().concat(caractere));
+			}
+		}
+	}
+	
 	//botoes numericos
 	BorderBut botao1 = new BorderBut();
 	BorderBut botao2 = new BorderBut();
@@ -49,11 +68,52 @@ public class TesteView extends JFrame {
 		this.setContentPane(imagePanel);
 
 		setLayout(null);
-
+		
+		
+		
+		codigoProduto.setBounds(640, 100, 150, 150);
+        codigoProduto.setText("0,00");
 		// botoes numericos
 		botao1.setBounds(640, 455, 109, 68);
 		botao1.setText("1");
 		botao1.setFont(new Font("Arial black", ABORT, 25));
+		botao1.setColorOver(new Color(90, 200,78));
+	    botao1.setColorClick(new Color(215, 215, 21));
+		botao1.setBorderColor(new Color(220, 220, 220));
+		botao1.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				digitar("1");
+			  
+				
+			}
+		});
 		
 		botao2.setBounds(764, 455, 110, 68);
 		botao2.setText("2");
@@ -116,10 +176,13 @@ public class TesteView extends JFrame {
 		bTotal.setFont(new Font("Arial black", ABORT, 20));
 		bTotal.setBackground(new Color(65,65,65));
 		
+		
+		
 
 		//adiciona a tela
 		
 		//adicionando botoes numericos
+		add(codigoProduto);
 		add(botao1);
 		add(botao2);
 		add(botao3);

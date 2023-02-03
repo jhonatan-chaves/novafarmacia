@@ -18,12 +18,10 @@ public class BorderBut extends JButton {
 		setRadius(20);
 		setBorderPainted(false);
 		setFocusPainted(false);
-	    colorOver = new Color(220, 220,  220);
-	    colorClick = new Color(215, 215, 215);
-	    borderColor = new Color(220, 220, 220);
+	   
 	    
 	    addMouseListener(new MouseAdapter() {
-	    /*	public void mouseEntered(MouseEvent me) {
+	    	public void mouseEntered(MouseEvent me) {
 	    		setBackground(colorOver);
 	    		over = true;
 	    	}
@@ -31,19 +29,19 @@ public class BorderBut extends JButton {
 	    		
 	    		setBackground(new Color(220, 220, 220));
 	    		over = false;
-	    	}*/
+	    	}
 	    	
 	    	public void mousePressed(MouseEvent me) {
 	    		setBackground(colorClick);
 	    	}
 	    	
-	    	/*public void mouseReleased(MouseEvent me) {
+	    	public void mouseReleased(MouseEvent me) {
 	    		if (over) {
 	    			setBackground(colorOver);
 	    		}else {
 	    			setBackground(color);
 	    		}
-	    	}*/
+	    	}
 	    	
 	    	
 		});
