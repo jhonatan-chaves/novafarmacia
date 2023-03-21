@@ -30,60 +30,59 @@ public class App {
 
 		// System.out.println(produtos.get(((int)3L) -1));
 		while (true) {
-			String procurarProduto = JOptionPane.showInputDialog(" 1/codigo ou 2/nome");
 
-			if (Integer.valueOf(procurarProduto) == 1) {
-				
-				                      //int i = 0; i < produtos.size(); i++
-				 while (true) {
-					 boolean valorInvalido;
-					 valorInvalido = false;
-					 
-					 String id = JOptionPane.showInputDialog("codigo do produto?");
-                     try {
-                     if (Integer.parseInt(id) != 123) {
-                    	 
-                    	 carrinho.add(produtos.get((int)Long.parseLong(id)-1));
-                    	 break;
-                     }
-						} catch (Exception e) {
-							JOptionPane.showMessageDialog(null, " codigo : " + id + " não escontrado");
-							valorInvalido = true;
+			String procurarProduto = JOptionPane.showInputDialog(" 1/codigo ou 2/nome");
+			switch (procurarProduto) {
+
+			case "1":
+
+				// int i = 0; i < produtos.size(); i++
+				while (true) {
+
+					String id = JOptionPane.showInputDialog("codigo do produto?");
+
+					try {
+						if (Integer.parseInt(id) != 123) {
+
+							carrinho.add(produtos.get((int) Long.parseLong(id) - 1));
+
+							System.out.println(produtos.get((int) Long.parseLong(id) - 1));
+
+						} else {
 							break;
 						}
-                    	
-                     } 
-                 
-				
-					
-					System.out.println("valor encontrado");
-					
-				
-				
-			} else {
+					} catch (Exception e) {
+						JOptionPane.showMessageDialog(null, " codigo : " + id + " não escontrado");
+
+					}
+
+				}
+
+				break;
+
+			case "2":
 				String nome = JOptionPane.showInputDialog("nome do produto?");
 				for (int i = 0; i < produtos.size(); i++) {
 
 					if (produtos.get(i).getNome() == nome.intern()) {
 						// System.out.println(produtos.get(i));
 						carrinho.add(produtos.get(i));
+						System.out.println(produtos.get(i));
+
+					} else {
 						break;
 					}
 
 				}
-			}
-			System.out.println(carrinho.toString());
+				break;
 
-			carrinho.clear();
-			System.out.println(carrinho.toString());
+			}
+
+			/*
+			 * for (Produto produto : produtos) { System.out.println(produto.getId()+" " +
+			 * produto.getNome()+ " "+ produto.getPreco() ); }
+			 */
 
 		}
-
-		/*
-		 * for (Produto produto : produtos) { System.out.println(produto.getId()+" " +
-		 * produto.getNome()+ " "+ produto.getPreco() ); }
-		 */
-
 	}
-
 }
