@@ -62,18 +62,18 @@ public class App {
 
 			case "2":
 				String nome = JOptionPane.showInputDialog("nome do produto?");
-				for (int i = 0; i < produtos.size(); i++) {
+				
+					for (int i = 0; i < produtos.size(); i++) {
+						
+						if (produtos.get(i).getNome().equals(nome)) {
+							// System.out.println(produtos.get(i));
+							carrinho.add(produtos.get(i));
+							System.out.println(produtos.get(i));
 
-					if (produtos.get(i).getNome() == nome.intern()) {
-						// System.out.println(produtos.get(i));
-						carrinho.add(produtos.get(i));
-						System.out.println(produtos.get(i));
-
-					} else {
-						break;
+						}
+						
 					}
-
-				}
+				 
 				break;
 
 			}
