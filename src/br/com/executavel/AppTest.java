@@ -21,7 +21,7 @@ public class AppTest {
 
 		// venda.getCarrinho().toString();
 
-		System.out.println(venda.getSomaProdutos());
+		//System.out.println(venda.getSomaProdutos());
 
 	}
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import br.com.executavel.App;
 import br.com.serviceproduto.Produto;
 
 public class Venda {
@@ -89,6 +90,49 @@ public class Venda {
 	@Override
 	public String toString() {
 		return " carrinho=" + carrinho + "]";
+	}
+
+	public void carrinhoCompras() {
+		while (true) {
+
+			String id = JOptionPane.showInputDialog("codigo do produto?");
+
+			try {
+				if (Integer.parseInt(id) != 123) {
+
+					carrinho.add(produtos.get((int) Long.parseLong(id) - 1));
+
+					System.out.println(produtos.get((int) Long.parseLong(id) - 1));
+					
+					//System.out.println(getSomaProdutos());
+
+				} else {
+					break;
+				}
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, " codigo : " + id + " não escontrado");
+
+			}
+
+		}
+
+	}
+
+	public void carrinhoComprasN() {
+		String nome = JOptionPane.showInputDialog("nome do produto?");
+
+		for (int i = 0; i < produtos.size(); i++) {
+
+			if (produtos.get(i).getNome().equals(nome)) {
+				// System.out.println(produtos.get(i));
+				carrinho.add(produtos.get(i));
+				System.out.println(produtos.get(i));
+				//System.out.println(getSomaProdutos());
+
+			}
+
+		}
+
 	}
 
 }
