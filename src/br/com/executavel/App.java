@@ -2,6 +2,7 @@ package br.com.executavel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -12,6 +13,8 @@ import br.com.servicevendas.Venda;
 public class App {
 
 	public static void main(String[] args) {
+
+		Scanner es = new Scanner(System.in);
 
 		List<Cliente> clientes = new ArrayList<Cliente>();
 
@@ -28,25 +31,50 @@ public class App {
 		var cliente1 = new Cliente(001L, "jhonatan");
 		clientes.add(cliente1);
 
+		System.out.println("============================== SUPER FARMA ==============================\n");
+
 		while (true) {
 
-			String procurarProduto = JOptionPane.showInputDialog(" 1/codigo ou 2/nome");
-			switch (procurarProduto) {
+			JOptionPane.showMessageDialog(null, "digite um numero: \n 1 : para iniciar o programa. \n 9 : para fechar o programa.");
+			
+			String escolha1 = JOptionPane.showInputDialog("digite o numero desejado");
 
-			case "1":
+			switch (Integer.parseInt(escolha1)) {
+			case 1:
 
-				venda.carrinhoCompras();
+				String operador = JOptionPane.showInputDialog("digite seu operador");
+				String senha = JOptionPane.showInputDialog("digite sua senha");
 
+				if (operador.equals("jhonatan") && senha.equals("212324")) {
+
+					while (true) { // inicio carrinho de compras
+
+						String procurarProduto = JOptionPane.showInputDialog(" 1/codigo ou 2/nome");
+						switch (procurarProduto) {
+
+						case "1":
+
+							venda.carrinhoCompras();
+
+							break;
+
+						case "2":
+
+							venda.carrinhoComprasN();
+
+							break;
+
+						}
+
+					} // final do while de carrinho de compras
+				}
 				break;
-
-			case "2":
-
-				venda.carrinhoComprasN();
-
+			case 9:
 				break;
-
+			}  //final switch escolha1
+			if (Integer.parseInt(escolha1) == 9){
+                break;
 			}
-
-		}
+		} // final while principal
 	}
 }
